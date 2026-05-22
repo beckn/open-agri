@@ -1,0 +1,87 @@
+openapi: 3.1.1
+$id: "https://schema.beckn.io/AgriServicePerformance/v2.1/attributes.yaml"
+info:
+  title: AgriServicePerformance Schema
+  version: "2.1.0"
+  description: Extension schema for agriculture-specific service performance in the generalised Beckn Protocol model
+  x-beckn-container: performanceAttributes
+
+components:
+  schemas:
+    AgriServicePerformance:
+      allOf:
+        - $ref: "https://schema.beckn.io/ServicePerformance/v2.1/attributes.yaml#/components/schemas/ServicePerformance"
+      type: object
+      x-beckn-container: performanceAttributes
+      x-status: under-review
+      x-tags:
+        - service
+        - agri-services
+        - performance
+        - agri-livestock
+      x-jsonld:
+        "@context": "https://schema.beckn.io/AgriServicePerformance/v2.1/context.jsonld"
+        "@type": "aspm:AgriServicePerformance"
+      properties:
+        farmLocation:
+          $ref: "#/components/schemas/AgriFarmLocation"
+          description: Specific location of the farm where service was delivered
+          x-jsonld-id: "aspm:farmLocation"
+        livestockCount:
+          type: integer
+          minimum: 1
+          description: Number of livestock animals serviced
+          x-jsonld-id: "aspm:livestockCount"
+        livestockType:
+          type: string
+          enum:
+            - POULTRY
+            - CATTLE
+            - GOAT
+            - SHEEP
+            - PIG
+            - OTHER
+          description: Type of livestock serviced
+          x-jsonld-id: "aspm:livestockType"
+
+    AgriFarmLocation:
+      type: object
+      description: Farm location details for agricultural service delivery
+      properties:
+        village:
+          type: string
+          description: Village name where farm is located
+          x-jsonld-id: "aspm:village"
+        ward:
+          type: string
+          description: Ward or sub-county name
+          x-jsonld-id: "aspm:ward"
+        county:
+          type: string
+          description: County or district name
+          x-jsonld-id: "aspm:county"
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 country code
+          x-jsonld-id: "aspm:country"
+        geo:
+          type: object
+          description: GeoJSON Point representing the farm location (longitude first, per GeoJSON spec)
+          x-jsonld-id: "aspm:geo"
+          properties:
+            type:
+              type: string
+              enum: [Point]
+              description: GeoJSON geometry type
+            coordinates:
+              type: array
+              items:
+                type: number
+              minItems: 2
+              maxItems: 2
+              description: "[longitude, latitude] per GeoJSON spec"
+          required: [type, coordinates]
+        locationLandmark:
+          type: string
+          description: Landmark or notable location reference
+          x-jsonld-id: "aspm:locationLandmark"
