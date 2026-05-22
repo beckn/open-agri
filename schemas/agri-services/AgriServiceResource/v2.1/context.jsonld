@@ -1,0 +1,23 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "beckn": "https://schema.beckn.io/",
+    "asr": "https://schema.beckn.io/AgriServiceResource#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+
+    "AgriServiceResource": "asr:AgriServiceResource",
+    "AgriServiceAreaHierarchy": "asr:AgriServiceAreaHierarchy",
+
+    "serviceCategory": {"@id": "asr:serviceCategory"},
+    "providerType": {"@id": "asr:providerType"},
+    "livestockTypes": {"@id": "asr:livestockTypes", "@container": "@list"},
+    "serviceAreaHierarchy": {"@id": "asr:serviceAreaHierarchy"},
+    "coverageAreaCodes": {"@id": "asr:coverageAreaCodes", "@container": "@list"},
+
+    "village": {"@id": "asr:village"},
+    "ward": {"@id": "asr:ward"},
+    "county": {"@id": "asr:county"},
+    "country": {"@id": "asr:country"},
+    "coverageRadiusKm": {"@id": "asr:coverageRadiusKm"}
+  }
+}
