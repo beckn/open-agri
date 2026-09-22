@@ -405,10 +405,10 @@ mappings:
       (
         $ctx      := $.context;
         $catalog  := $.message.catalog;
-        $entitlementCtx := "https://schema.beckn.io/Attributes/v2.0/context.jsonld";
-        $priceCtx       := "https://schema.beckn.io/PriceSpecification/2.0/context.jsonld";
-        $providerCtx    := "https://schema.beckn.io/Attributes/v2.0/context.jsonld";
-        $attrCtx        := "https://schema.beckn.io/Attributes/v2.0/context.jsonld";
+        $entitlementCtx := "https://schema.nfh.global/Attributes/v2.0/context.jsonld";
+        $priceCtx       := "https://schema.nfh.global/PriceSpecification/v2.0/context.jsonld";
+        $providerCtx    := "https://schema.nfh.global/Attributes/v2.0/context.jsonld";
+        $attrCtx        := "https://schema.nfh.global/Attributes/v2.0/context.jsonld";
 
         {
           "context": {
@@ -677,8 +677,8 @@ mappings:
         $ctx   := $.context;
         $order := $.message.order;
         $fuls  := $.message.fulfillments;
-        $personCtx  := "https://schema.beckn.io/Person/v2.0/context.jsonld";
-        $attribCtx  := "https://schema.beckn.io/Attributes/v2.0/context.jsonld";
+        $personCtx  := "https://schema.nfh.global/Person/v2.0/context.jsonld";
+        $attribCtx  := "https://schema.nfh.global/Attributes/v2.0/context.jsonld";
 
         $reformatDob := function($dob) {(
           $sep := $contains($dob, "/") ? "/" : "-";
@@ -886,10 +886,10 @@ mappings:
         $ctx     := $.context;
         $order   := $.message.order;
         $fuls    := $.message.order.fulfillments;
-        $personCtx      := "https://schema.beckn.io/Person/v2.0/context.jsonld";
-        $attribCtx      := "https://schema.beckn.io/Attributes/v2.0/context.jsonld";
-        $entitlementCtx := "https://schema.beckn.io/Attributes/v2.0/context.jsonld";
-        $priceCtx       := "https://schema.beckn.io/PriceSpecification/2.0/context.jsonld";
+        $personCtx      := "https://schema.nfh.global/Person/v2.0/context.jsonld";
+        $attribCtx      := "https://schema.nfh.global/Attributes/v2.0/context.jsonld";
+        $entitlementCtx := "https://schema.nfh.global/Attributes/v2.0/context.jsonld";
+        $priceCtx       := "https://schema.nfh.global/PriceSpecification/v2.0/context.jsonld";
 
         $toContractCode := function($v1Code) {
           $v1Code = "Booking-Cancelled" ? "CLOSED" :
@@ -1230,9 +1230,9 @@ mappings:
         $ctx     := $.context;
         $order   := $.message.order;
         $fuls    := $.message.order.fulfillments;
-        $attribCtx      := "https://schema.beckn.io/Attributes/v2.0/context.jsonld";
-        $entitlementCtx := "https://schema.beckn.io/Attributes/v2.0/context.jsonld";
-        $priceCtx       := "https://schema.beckn.io/PriceSpecification/2.0/context.jsonld";
+        $attribCtx      := "https://schema.nfh.global/Attributes/v2.0/context.jsonld";
+        $entitlementCtx := "https://schema.nfh.global/Attributes/v2.0/context.jsonld";
+        $priceCtx       := "https://schema.nfh.global/PriceSpecification/v2.0/context.jsonld";
 
         $statusCode     := $fuls[0].state.descriptor.code;
         $statusDescName := $fuls[0].state.descriptor.name;
